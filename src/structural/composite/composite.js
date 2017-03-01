@@ -41,10 +41,6 @@ function Memory() {
 }
 Memory.prototype = Object.create(Equipament.prototype);
 
-//example
-var cabbinet = new EquipamentComposition("cabbinet");
-cabbinet.add(new FloppyDisk());
-cabbinet.add(new HardDrive());
-cabbinet.add(new Memory());
+module.exports = [EquipamentComposition, FloppyDisk, HardDrive, Memory];
 
-console.log(cabbinet.getPrice());
+

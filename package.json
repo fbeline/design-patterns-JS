@@ -1,0 +1,36 @@
+{
+    "name": "gof-js",
+    "version": "1.0.0",
+    "description": "Design patterns implemented in javascript",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "mocha test",
+        "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.4.5",
+        "mocha-lcov-reporter": "^1.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FelipeBB/GoF-JS.git"
+    },
+    "keywords": [
+        "design",
+        "patterns",
+        "gof"
+    ],
+    "author": "felipe baravieira",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/FelipeBB/GoF-JS/issues"
+    },
+    "homepage": "https://github.com/FelipeBB/GoF-JS#readme"
+}

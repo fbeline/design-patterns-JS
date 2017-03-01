@@ -67,10 +67,4 @@ class Memory extends Equipament {
     }
 }
 
-//example
-var cabbinet = new Cabbinet();
-cabbinet.add(new FloppyDisk());
-cabbinet.add(new HardDrive());
-cabbinet.add(new Memory());
-
-console.log(cabbinet.getPrice());
+module.exports = [Cabbinet, FloppyDisk, HardDrive, Memory];
