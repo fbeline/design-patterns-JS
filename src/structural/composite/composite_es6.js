@@ -27,9 +27,9 @@ class Composite extends Equipament {
     }
 
     getPrice() {
-        return this.equipaments.map(function(Equipament){
-            return Equipament.getPrice();
-        }).reduce(function(a, b) {
+        return this.equipaments.map(equipament => {
+            return equipament.getPrice();
+        }).reduce((a, b)  => {
             return  a + b;
         });
     }
