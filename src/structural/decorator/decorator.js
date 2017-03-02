@@ -28,9 +28,3 @@ CheeseDecorator.prototype.getPrice = function() {
 }
 
 module.exports = [Penne, SauceDecorator, CheeseDecorator];
-
-var penne = new Penne();
-var penneWithSauce = new SauceDecorator(penne);
-var penneWithSauceAndCheese = new CheeseDecorator(penneWithSauce);
-console.log(penneWithSauceAndCheese.getPrice());
-
