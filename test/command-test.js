@@ -6,19 +6,19 @@ describe('command tests', () => {
 
     it('turn off/on test', () => {
         var turbine = new Turbine();
-        var onCommand = new OnCommand(turbine);
-        var cockpit = new Cockpit(onCommand);
+        const onCommand = new OnCommand(turbine);
+        const cockpit = new Cockpit(onCommand);
         cockpit.execute();
         expect(turbine.state).to.be.true;
     });
 
     it('speed test', () => {
         var turbine = new Turbine();
-        var onCommand = new OnCommand(turbine);
+        const onCommand = new OnCommand(turbine);
         var cockpit = new Cockpit(onCommand);
         cockpit.execute();
 
-        var speedUp = new SpeedUpCommand(turbine);
+        const speedUp = new SpeedUpCommand(turbine);
         cockpit = new Cockpit(speedUp);
         cockpit.execute();
 
