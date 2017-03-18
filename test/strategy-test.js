@@ -6,7 +6,6 @@ const [ShoppingCart, guestStrategy, regularStrategy, premiumStrategy] = require(
 describe('strategy tests', () => {
 
     it('guest test', () => {
-        console.log(ShoppingCart);
         var guestCart = new ShoppingCart(guestStrategy);
         guestCart.setAmount(100);
         expect(guestCart.checkout()).to.equal(100);
