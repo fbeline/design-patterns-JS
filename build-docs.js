@@ -70,7 +70,7 @@ const writeTopicContents = ({ name }) => `* [${reverseDashCase(name)}](#${dashCa
 `;
 
 const writeSection = ({ name, path, topics }) =>
-`##${name}
+`## ${name}
 ${topics.map( writeTopic ).join('')}
 `;
 

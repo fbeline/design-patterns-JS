@@ -29,7 +29,7 @@
 
 
 
-##behavioral
+## behavioral
 ### Chain Of Resp
 ##### chain-of-resp.js
 ```Javascript
@@ -646,7 +646,7 @@ module.exports = [Sum, Min, Num, Printer];
 ```
 
 
-##creational
+## creational
 ### Abstract Factory
 ##### abstract-factory.js
 ```Javascript
@@ -782,7 +782,7 @@ module.exports = Person;
 ```
 
 
-##structural
+## structural
 ### Adapter
 ##### adapter.js
 ```Javascript
