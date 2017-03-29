@@ -32,6 +32,60 @@ const makeTopic = ( sectionName ) => ( name ) => ({
 const getFileContents = ( path ) => fs.existsAsync( path )
     .then( exists => exists ? fs.readFileAsync( path, 'utf-8' ) : '' );
 
+const stripPunctuation = ( str ) =>
+  str.replace( /["'.,\/#!$%\^&\*;:’{}=_`~()]/g, '' );
+
+const dashCase = ( str ) => stripPunctuation( str ).toLowerCase().split( ' ' ).filter(
+  ( word ) => word !== ''
+).join( '-' );
+
+const reverseDashCase= (str) => str.split('-').map(
+    word => word.replace(
+        /(?:^\w|[a-z]|\b\w)/g,
+        ( letter, index ) =>
+          index == 0 ?
+            letter.toUpperCase() :
+            letter.toLowerCase()
+    )
+).join(' ');
+
+/* Writing Markdown */
+const writeDocument = () =>
+`${writeHeader(sections)}
+${sections.map( writeSection ).join('')}
+`;
+
+const writeHeader = ( sections ) =>
+`# Design Patterns JS
+
+${sections.map( writeSectionContents ).join('')}
+`;
+
+const writeSectionContents = ({ name, topics }) =>
+`**[${reverseDashCase(name)}](#${dashCase(name)})**
+${topics.map( writeTopicContents ).join('')}
+`;
+
+const writeTopicContents = ({ name }) => `* [${reverseDashCase(name)}](#${dashCase(name)})
+`;
+
+const writeSection = ({ name, path, topics }) =>
+`##${name}
+${topics.map( writeTopic ).join('')}
+`;
+
+const writeTopic = ({ name, path, files, tests }) =>
+`### ${reverseDashCase(name)}
+${files.map( writeFile ).join('')}
+`;
+
+const writeFile = ( path ) =>
+`##### ${nPath.basename(path)}
+\`\`\`Javascript
+${files.get(path)}
+\`\`\`
+`;
+
 /* File System Actions */
 fs.readdirAsync( SOURCE_DIR )
     .then( sectionNames => {
@@ -103,6 +157,7 @@ fs.readdirAsync( SOURCE_DIR )
             ( contents, i ) => files.set( filePaths[i], contents )
         );
 
+        return fs.outputFileAsync( DOCS_FILE, writeDocument() )
 
     } )
     .catch( error => { throw error; } )
