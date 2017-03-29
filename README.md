@@ -45,5 +45,8 @@ To run the tests you just need to execute the following command inside the proje
 
     npm test
 
+## TODO
+Some patterns still need to be implemented using ES6 classes.
+
 ## Notes
 - All the short definitions used in this documentation was extracted from [here](https://en.wikipedia.org/wiki/Design_Patterns).
