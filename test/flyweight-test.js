@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const [colorFactory] = require('../src/structural/flyweight/flyweight');
+const colorFactory = require('../src/structural/flyweight/flyweight');
 
 describe('flyweight tests', () => {
 

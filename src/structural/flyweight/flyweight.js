@@ -11,6 +11,6 @@ var colorFactory = {
         this.colors[name] = new Color(name);
         return this.colors[name];
     }
-}
+};
 
-module.exports = [colorFactory];
+module.exports = colorFactory;
