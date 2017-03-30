@@ -1,6 +1,6 @@
 ## Design Patterns JS [![Coverage Status](https://coveralls.io/repos/github/FelipeBB/GoF-JS/badge.svg?branch=master)](https://coveralls.io/github/FelipeBB/GoF-JS?branch=master)
 
-Here you will find the 23 (GoF) design patterns implemented in javascript using both prototype and ES6 classes.
+Here you will find the 23 (GoF) design patterns implemented in javascript using both prototype and ES6 classes. You can use the **docs.md** to quicky overview the examples.
 
 Follows the list of patterns separed by type:
 
@@ -41,8 +41,9 @@ Most of these design patterns are specifically concerned with communication betw
 
 
 ## Testing
-To run the tests you just need to execute the following command inside the project root folder.
+To run the tests you just need to execute the following commands inside the project root folder.
 
+    npm install
     npm test
 
 ## TODO
