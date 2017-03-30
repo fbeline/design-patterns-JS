@@ -1,5 +1,5 @@
-//Equipament
-class Equipament {
+//Equipment
+class Equipment {
 
     getPrice() {
         return this.price || 0;
@@ -10,12 +10,12 @@ class Equipament {
     }
 
     setName(name) {
-       this.name = name; 
+       this.name = name;
     }
 }
 
-// --- composite --- 
-class Composite extends Equipament {
+// --- composite ---
+class Composite extends Equipment {
 
     constructor() {
         super();
@@ -42,8 +42,8 @@ class Cabbinet extends Composite {
     }
 }
 
-// --- leafs --- 
-class FloppyDisk extends Equipament {
+// --- leafs ---
+class FloppyDisk extends Equipment {
     constructor() {
         super();
         this.setName('Floppy Disk');
@@ -51,7 +51,7 @@ class FloppyDisk extends Equipament {
     }
 }
 
-class HardDrive extends Equipament {
+class HardDrive extends Equipment {
     constructor() {
         super();
         this.setName('Hard Drive');
@@ -59,7 +59,7 @@ class HardDrive extends Equipament {
     }
 }
 
-class Memory extends Equipament {
+class Memory extends Equipment {
     constructor() {
         super();
         this.setName('Memory');
