@@ -3,14 +3,14 @@ function EpsonPrinter(ink) {
 }
 EpsonPrinter.prototype.print = function() {
     return "Printer: Epson, Ink: " + this.ink;
-}
+};
 
 function HPprinter(ink) {
     this.ink = ink();
 }
 HPprinter.prototype.print = function() {
     return "Printer: HP, Ink: " + this.ink;
-}
+};
 
 function acrylicInk() {
     return "acrylic-based";

@@ -10,6 +10,6 @@ Iterator.prototype = {
     hasNext: function() {
         return this.index < this.elements.length;
     }
-}
+};
 
 module.exports = Iterator;

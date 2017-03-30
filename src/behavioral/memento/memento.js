@@ -17,10 +17,10 @@ function Caretaker() {
 
 Caretaker.prototype.addMemento = function(memento) {
     this.values.push(memento);
-}
+};
 
 Caretaker.prototype.getMemento = function(index) {
     return this.values[index];
-}
+};
 
 module.exports = [Memento, originator, Caretaker];

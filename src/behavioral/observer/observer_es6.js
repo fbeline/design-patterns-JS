@@ -15,7 +15,7 @@ class Product {
 
     unregister(observer) {
         this.actions.remove.filter(function(el) {
-            return el != observer;
+            return el !== observer;
         });
     }
 

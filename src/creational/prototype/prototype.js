@@ -5,7 +5,7 @@ function Sheep(name, weight) {
 
 Sheep.prototype.clone = function() {
     return new Sheep(this.name, this.weight);
-}
+};
 
 
 module.exports = Sheep;

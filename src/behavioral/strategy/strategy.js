@@ -5,11 +5,11 @@ function ShoppingCart(discount) {
 
 ShoppingCart.prototype.setAmount = function(amount) {
     this.amount = amount;
-}
+};
 
 ShoppingCart.prototype.checkout = function() {
-   return this.discount(this.amount); 
-}
+   return this.discount(this.amount);
+};
 
 function guestStrategy(amount) {
     return amount;

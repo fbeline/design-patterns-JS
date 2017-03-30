@@ -2,7 +2,7 @@ function Operation() {}
 
 Operation.prototype.accept = function(visitor) {
     return visitor.visit(this);
-}
+};
 
 function Sum() {
     this.val = " + ";
@@ -23,6 +23,6 @@ Num.prototype = Object.create(Operation.prototype);
 function Printer() {}
 Printer.prototype.visit = function(operation) {
     return operation.val;
-}
+};
 
 module.exports = [Sum, Min, Num, Printer];

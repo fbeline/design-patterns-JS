@@ -1,7 +1,7 @@
 function Car() {
     this.drive = function() {
         return "driving";
-    }
+    };
 }
 
 function CarProxy(driver) {
@@ -10,7 +10,7 @@ function CarProxy(driver) {
         if ( driver.age < 18)
             return "too young to drive";
         return new Car().drive();
-    }
+    };
 }
 
 function Driver(age) {

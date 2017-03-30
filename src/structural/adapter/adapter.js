@@ -4,7 +4,7 @@ function Soldier(lvl) {
 
 Soldier.prototype.attack = function() {
     return this.lvl * 1;
-}
+};
 
 function Jedi(lvl) {
     this.lvl = lvl;
@@ -12,7 +12,7 @@ function Jedi(lvl) {
 
 Jedi.prototype.attackWithSaber = function() {
     return this.lvl * 100;
-}
+};
 
 function JediAdapter(jedi) {
     this.jedi = jedi;
@@ -20,6 +20,6 @@ function JediAdapter(jedi) {
 
 JediAdapter.prototype.attack = function() {
     return this.jedi.attackWithSaber();
-}
+};
 
 module.exports = [Soldier, Jedi, JediAdapter];

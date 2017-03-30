@@ -5,7 +5,7 @@ function Sum(left, right) {
 
 Sum.prototype.interpret = function() {
    return this.left.interpret() + this.right.interpret();
-}
+};
 
 function Min(left, right) {
     this.left = left;
@@ -14,7 +14,7 @@ function Min(left, right) {
 
 Min.prototype.interpret = function() {
    return this.left.interpret() - this.right.interpret();
-}
+};
 
 function Num(val) {
     this.val = val;
@@ -22,6 +22,6 @@ function Num(val) {
 
 Num.prototype.interpret = function() {
     return this.val;
-}
+};
 
 module.exports = [Num, Min, Sum];

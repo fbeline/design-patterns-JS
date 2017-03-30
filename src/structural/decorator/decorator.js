@@ -3,7 +3,7 @@ function Pasta() {
 }
 Pasta.prototype.getPrice = function() {
     return this.price;
-}
+};
 
 function Penne() {
     this.price = 8;
@@ -17,7 +17,7 @@ function SauceDecorator(pasta) {
 
 SauceDecorator.prototype.getPrice = function() {
     return this.pasta.getPrice() + 5;
-}
+};
 
 function CheeseDecorator(pasta) {
     this.pasta = pasta;
@@ -25,6 +25,6 @@ function CheeseDecorator(pasta) {
 
 CheeseDecorator.prototype.getPrice = function() {
     return this.pasta.getPrice() + 3;
-}
+};
 
 module.exports = [Penne, SauceDecorator, CheeseDecorator];
