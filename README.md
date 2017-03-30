@@ -1,17 +1,17 @@
 ## Design Patterns JS [![Coverage Status](https://coveralls.io/repos/github/FelipeBB/GoF-JS/badge.svg?branch=master)](https://coveralls.io/github/FelipeBB/GoF-JS?branch=master)
 
-Here you will find the 23 (GoF) design patterns implemented in javascript using both prototype and ES6 classes. You can use the **docs.md** to quicky overview the examples.
+Here you will find the 23 (GoF) design patterns implemented in JavaScript using both prototype and ES6 classes. You can use the [**docs.md**](docs.md) to quicky overview the examples.
 
 Follows the list of patterns separed by type:
 
 ### Creational Patterns
 Creational patterns are ones that create objects for you, rather than having you instantiate objects directly. This gives your program more flexibility in deciding which objects need to be created for a given case.
 
-- **Abstract factory:** Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
-- **Builder:** Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.
-- **Factory method:** Define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
-- **Prototype:** Specify the kinds of objects to create using a prototypical instance, and create new objects from the 'skeleton' of an existing object, thus boosting performance and keeping memory footprints to a minimum.
-- **Singleton:** Ensure a class has only one instance, and provide a global point of access to it.
+- **Abstract factory:** provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+- **Builder:** separate the construction of a complex object from its representation, allowing the same construction process to create various representations.
+- **Factory method:** define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+- **Prototype:** specify the kinds of objects to create using a prototypical instance, and create new objects from the 'skeleton' of an existing object, thus boosting performance and keeping memory footprints to a minimum.
+- **Singleton:** ensure a class has only one instance, and provide a global point of access to it.
 
 ### Structural Patterns
 These concern class and object composition. They use inheritance to compose interfaces and define ways to compose objects to obtain new functionality.
@@ -39,12 +39,12 @@ Most of these design patterns are specifically concerned with communication betw
 - **Template:** method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.
 - **Visitor:** separates an algorithm from an object structure by moving the hierarchy of methods into one object.
 
-
 ## Testing
-To run the tests you just need to execute the following commands inside the project root folder.
-
-    npm install
-    npm test
+To run the tests you just need to execute the following commands inside the project root folder:
+```bash
+npm install
+npm test
+```
 
 ## TODO
 Some patterns still need to be implemented using ES6 classes.
