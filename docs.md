@@ -16,6 +16,7 @@
 **[Creational](#creational)**
 * [Abstract Factory](#abstract-factory)
 * [Builder](#builder)
+* [Factory](#factory)
 * [Prototype](#prototype)
 * [Singleton](#singleton)
 
@@ -24,6 +25,7 @@
 * [Bridge](#bridge)
 * [Composite](#composite)
 * [Decorator](#decorator)
+* [Facade](#facade)
 * [Flyweight](#flyweight)
 * [Proxy](#proxy)
 
@@ -295,21 +297,21 @@ function TrafficTower() {
 
 TrafficTower.prototype.requestPositions = function() {
     return this.airPlanes.map(function(airPlane) {
-       return airPlane.position;
+        return airPlane.position;
     });
-}
+};
 
-function AirPlane(position, trafficTower) {
-    this.position = position
+function Airplane(position, trafficTower) {
+    this.position = position;
     this.trafficTower = trafficTower;
     this.trafficTower.airPlanes.push(this);
 }
 
-AirPlane.prototype.requestPositions = function() {
+Airplane.prototype.requestPositions = function() {
     return this.trafficTower.requestPositions();
-}
+};
 
-module.exports = [TrafficTower, AirPlane];
+module.exports = [TrafficTower, Airplane];
 
 ```
 
@@ -746,6 +748,88 @@ function RequestBuilder() {
 module.exports = RequestBuilder;
 
 ```
+##### builder_es6.js
+```Javascript
+class Request {
+    constructor() {
+        this.url = '';
+        this.method = '';
+        this.payload = {};
+    }
+}
+
+class RequestBuilder {
+    constructor() {
+        this.request = new Request();
+    }
+
+    forUrl(url) {
+        this.request.url = url;
+        return this;
+    }
+
+    useMethod(method) {
+        this.request.method = method;
+        return this;
+    }
+
+    payload(payload) {
+        this.request.payload = payload;
+        return this;
+    }
+
+    build() {
+        return this.request;
+    }
+
+}
+
+module.exports = RequestBuilder;
+
+```
+
+### Factory
+##### factory.js
+```Javascript
+function bmwFactory(type) {
+    if (type === 'X5')
+        return new Bmw(type, 108000, 300);
+    if (type === 'X6')
+        return new Bmw(type, 111000, 320);
+}
+
+function Bmw(model, price, maxSpeed) {
+    this.model = model;
+    this.price = price;
+    this.maxSpeed = maxSpeed;
+}
+
+module.exports = bmwFactory;
+
+```
+##### factory_es6.js
+```Javascript
+class BmwFactory {
+
+    create(type) {
+        if (type === 'X5')
+            return new Bmw(type, 108000, 300);
+        if (type === 'X6')
+            return new Bmw(type, 111000, 320);
+    }
+}
+
+class Bmw {
+    constructor(model, price, maxSpeed) {
+        this.model = model;
+        this.price = price;
+        this.maxSpeed = maxSpeed;
+    }
+}
+
+module.exports = BmwFactory;
+
+```
 
 ### Prototype
 ##### prototype.js
@@ -899,26 +983,26 @@ module.exports = [EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk];
 ##### composite.js
 ```Javascript
 // composition
-function EquipamentComposition(name) {
+function EquipmentComposition(name) {
     this.equipaments = [];
     this.name = name;
 }
 
-EquipamentComposition.prototype.add = function(Equipament) {
+EquipmentComposition.prototype.add = function(Equipament) {
     this.equipaments.push(Equipament);
-}; 
+};
 
-EquipamentComposition.prototype.getPrice = function() {
+EquipmentComposition.prototype.getPrice = function() {
     return this.equipaments.map(function(Equipament){
         return Equipament.getPrice();
     }).reduce(function(a, b) {
         return  a + b;
     });
-}
+};
 
-function Equipament() {};
+function Equipment() {}
 
-Equipament.prototype.getPrice = function() {
+Equipment.prototype.getPrice = function() {
     return this.price;
 };
 
@@ -927,29 +1011,27 @@ function FloppyDisk() {
     this.name = "Floppy Disk";
     this.price = 70;
 }
-FloppyDisk.prototype = Object.create(Equipament.prototype);
+FloppyDisk.prototype = Object.create(Equipment.prototype);
 
 function HardDrive() {
     this.name = "Hard Drive";
     this.price = 250;
 }
-HardDrive.prototype = Object.create(Equipament.prototype);
+HardDrive.prototype = Object.create(Equipment.prototype);
 
 function Memory() {
     this.name = "8gb memomry";
     this.price = 280;
 }
-Memory.prototype = Object.create(Equipament.prototype);
+Memory.prototype = Object.create(Equipment.prototype);
 
-module.exports = [EquipamentComposition, FloppyDisk, HardDrive, Memory];
-
-
+module.exports = [EquipmentComposition, FloppyDisk, HardDrive, Memory];
 
 ```
 ##### composite_es6.js
 ```Javascript
-//Equipament
-class Equipament {
+//Equipment
+class Equipment {
 
     getPrice() {
         return this.price || 0;
@@ -960,12 +1042,12 @@ class Equipament {
     }
 
     setName(name) {
-       this.name = name; 
+       this.name = name;
     }
 }
 
-// --- composite --- 
-class Composite extends Equipament {
+// --- composite ---
+class Composite extends Equipment {
 
     constructor() {
         super();
@@ -992,8 +1074,8 @@ class Cabbinet extends Composite {
     }
 }
 
-// --- leafs --- 
-class FloppyDisk extends Equipament {
+// --- leafs ---
+class FloppyDisk extends Equipment {
     constructor() {
         super();
         this.setName('Floppy Disk');
@@ -1001,7 +1083,7 @@ class FloppyDisk extends Equipament {
     }
 }
 
-class HardDrive extends Equipament {
+class HardDrive extends Equipment {
     constructor() {
         super();
         this.setName('Hard Drive');
@@ -1009,7 +1091,7 @@ class HardDrive extends Equipament {
     }
 }
 
-class Memory extends Equipament {
+class Memory extends Equipment {
     constructor() {
         super();
         this.setName('Memory');
@@ -1111,6 +1193,74 @@ module.exports = [Penne, SauceDecorator, CheeseDecorator];
 
 ```
 
+### Facade
+##### facade.js
+```Javascript
+var shopFacade = {
+    calc: function(price) {
+        price = discount(price);
+        price = fees(price);
+        price += shipping();
+        return price;
+    }
+};
+
+function discount(value) {
+   return value * 0.9;
+}
+
+function shipping() {
+   return 5;
+}
+
+function fees(value) {
+    return value * 1.05;
+}
+
+module.exports = shopFacade;
+
+```
+##### facade_es6.js
+```Javascript
+class ShopFacade {
+    constructor() {
+        this.discount = new Discount();
+        this.shipping = new Shipping();
+        this.fees = new Fees();
+    }
+
+    calc(price) {
+        price = this.discount.calc(price);
+        price = this.fees.calc(price);
+        price += this.shipping.calc();
+        return price;
+    }
+}
+
+class Discount {
+
+    calc(value) {
+        return value * 0.9;
+    }
+}
+
+class Shipping {
+    calc() {
+        return 5;
+    }
+}
+
+class Fees {
+
+    calc(value) {
+        return value * 1.05;
+    }
+}
+
+module.exports = ShopFacade;
+
+```
+
 ### Flyweight
 ##### flyweight.js
 ```Javascript
@@ -1127,9 +1277,9 @@ var colorFactory = {
         this.colors[name] = new Color(name);
         return this.colors[name];
     }
-}
+};
 
-module.exports = [colorFactory];
+module.exports = colorFactory;
 
 ```
 
