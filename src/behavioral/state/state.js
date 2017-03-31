@@ -1,5 +1,5 @@
 function Order() {
-    this.state = new WaintingForPayment();
+    this.state = new WaitingForPayment();
 
     this.nextState = function() {
         this.state = this.state.next();
@@ -7,7 +7,7 @@ function Order() {
 }
 
 
-function WaintingForPayment() {
+function WaitingForPayment() {
     this.name = 'waitingForPayment';
     this.next = function() {
         return new Shipping();
