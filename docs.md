@@ -246,6 +246,45 @@ Num.prototype.interpret = function() {
 module.exports = [Num, Min, Sum];
 
 ```
+##### interpreter_es6.js
+```Javascript
+class Sum {
+    constructor(left, right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    interpret() {
+        return this.left.interpret() + this.right.interpret();
+    }
+}
+
+class Min {
+    constructor(left, right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    interpret() {
+        return this.left.interpret() - this.right.interpret();
+    }
+}
+
+
+class Num {
+    constructor(val) {
+        this.val = val;
+    }
+
+    interpret() {
+        return this.val;
+    }
+}
+
+
+module.exports = [Num, Min, Sum];
+
+```
 
 ### Iterator
 ##### iterator.js
@@ -292,24 +331,54 @@ module.exports = Iterator;
 ##### mediator.js
 ```Javascript
 function TrafficTower() {
-    this.airPlanes = [];
+    this.airplanes = [];
 }
 
 TrafficTower.prototype.requestPositions = function() {
-    return this.airPlanes.map(function(airPlane) {
-        return airPlane.position;
+    return this.airplanes.map(function(airplane) {
+        return airplane.position;
     });
 };
 
 function Airplane(position, trafficTower) {
     this.position = position;
     this.trafficTower = trafficTower;
-    this.trafficTower.airPlanes.push(this);
+    this.trafficTower.airplanes.push(this);
 }
 
 Airplane.prototype.requestPositions = function() {
     return this.trafficTower.requestPositions();
 };
+
+module.exports = [TrafficTower, Airplane];
+
+```
+##### mediator_es6.js
+```Javascript
+class TrafficTower {
+    constructor() {
+        this.airplanes = [];
+    }
+
+    requestPositions() {
+        return this.airplanes.map(function(airplane) {
+            return airplane.position;
+        });
+    }
+}
+
+class Airplane{
+    constructor(position, trafficTower) {
+        this.position = position;
+        this.trafficTower = trafficTower;
+        this.trafficTower.airplanes.push(this);
+    }
+
+    requestPositions() {
+        return this.trafficTower.requestPositions();
+    }
+}
+
 
 module.exports = [TrafficTower, Airplane];
 
@@ -343,7 +412,43 @@ Caretaker.prototype.getMemento = function(index) {
     return this.values[index];
 };
 
-module.exports = [Memento, originator, Caretaker];
+module.exports = [originator, Caretaker];
+
+```
+##### memento_es6.js
+```Javascript
+class Memento {
+    constructor(value) {
+        this.value = value;
+    }
+}
+
+var originator = {
+    store: function(val) {
+        return new Memento(val);
+    },
+    restore: function(memento) {
+        return memento.value;
+    }
+};
+
+class Caretaker {
+    constructor() {
+        this.values = [];
+    }
+
+    addMemento(memento) {
+        this.values.push(memento);
+    }
+
+    getMemento(index) {
+        return this.values[index];
+    }
+}
+
+
+
+module.exports = [originator, Caretaker];
 
 ```
 
@@ -570,6 +675,43 @@ Tax2.prototype = Object.create(Tax.prototype);
 Tax2.prototype.overThousand = function(value) {
     return value * 1.2;
 };
+
+module.exports = [Tax1, Tax2];
+
+```
+##### template_es6.js
+```Javascript
+class Tax {
+    calc(value) {
+        if (value >= 1000)
+            value = this.overThousand(value);
+
+        return this.complementaryFee(value);
+    }
+
+    complementaryFee(value) {
+        return value + 10;
+    }
+
+}
+
+class Tax1 extends Tax {
+    constructor() {
+        super();
+    }
+    overThousand(value) {
+        return value * 1.1;
+    }
+}
+
+class Tax2 extends Tax {
+    constructor() {
+        super();
+    }
+    overThousand(value) {
+        return value * 1.2;
+    }
+}
 
 module.exports = [Tax1, Tax2];
 
