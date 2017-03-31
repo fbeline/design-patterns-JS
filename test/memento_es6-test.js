@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
 
-const [originator, Caretaker] = require('../src/behavioral/memento/memento');
+const [originator, Caretaker] = require('../src/behavioral/memento/memento_es6');
 
-describe('memento tests', () => {
+describe('memento es6 tests', () => {
 
     it('sanity', () => {
         var careTaker = new Caretaker();

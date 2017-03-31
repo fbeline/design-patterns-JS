@@ -23,4 +23,4 @@ Caretaker.prototype.getMemento = function(index) {
     return this.values[index];
 };
 
-module.exports = [Memento, originator, Caretaker];
+module.exports = [originator, Caretaker];
