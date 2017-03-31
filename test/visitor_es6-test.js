@@ -1,17 +1,24 @@
 const expect = require('chai').expect;
+const [Developer, Manager, bonusVisitor] = require('../src/behavioral/visitor/visitor_es6');
 
-const [Sum, Min, Num, Printer] = require('../src/behavioral/visitor/visitor_es6.js');
 
-
-describe('visitor tests', () => {
+describe('visitor es6 tests', () => {
     it('sanity', () => {
-        expression = [new Num(10), new Sum(), new Num(5), new Min(), new Num(3)];
+        var employees = [];
 
-        result = "";
-        expression.forEach(el => {
-           result += el.accept(new Printer());
+        var john = new Developer(4000);
+        var maria = new Developer(4000);
+        var christian = new Manager(10000);
+
+        employees.push(john);
+        employees.push(maria);
+        employees.push(christian);
+
+        employees.forEach(e => {
+            e.accept(bonusVisitor);
         });
 
-        expect(result).to.equal("10 + 5 - 3");
+        expect(john.bonus).to.equal(4000);
+        expect(christian.bonus).to.equal(20000);
     });
 });

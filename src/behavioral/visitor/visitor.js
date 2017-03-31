@@ -1,28 +1,29 @@
-function Operation() {}
+function bonusVisitor(employee) {
+    if (employee instanceof Manager)
+        employee.bonus = employee.salary * 2;
+    if (employee instanceof Developer)
+        employee.bonus = employee.salary;
+}
 
-Operation.prototype.accept = function(visitor) {
-    return visitor.visit(this);
+function Employee() {
+    this.bonus = 0;
+}
+
+Employee.prototype.accept = function(visitor) {
+    visitor(this);
 };
 
-function Sum() {
-    this.val = " + ";
+function Manager(salary) {
+    this.salary = salary;
 }
-Sum.prototype = Object.create(Operation.prototype);
 
-function Min() {
-    this.val = " - ";
+Manager.prototype = Object.create(Employee.prototype);
+
+function Developer(salary) {
+    this.salary = salary;
 }
-Min.prototype = Object.create(Operation.prototype);
 
-function Num(val) {
-    this.val = val;
-}
-Num.prototype = Object.create(Operation.prototype);
+Developer.prototype = Object.create(Employee.prototype);
 
 
-function Printer() {}
-Printer.prototype.visit = function(operation) {
-    return operation.val;
-};
-
-module.exports = [Sum, Min, Num, Printer];
+module.exports = [Developer, Manager, bonusVisitor];

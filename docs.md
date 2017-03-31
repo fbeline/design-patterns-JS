@@ -578,72 +578,70 @@ module.exports = [Tax1, Tax2];
 ### Visitor
 ##### visitor.js
 ```Javascript
-function Operation() {}
+function bonusVisitor(employee) {
+    if (employee instanceof Manager)
+        employee.bonus = employee.salary * 2;
+    if (employee instanceof Developer)
+        employee.bonus = employee.salary;
+}
 
-Operation.prototype.accept = function(visitor) {
-    return visitor.visit(this);
+function Employee() {
+    this.bonus = 0;
+}
+
+Employee.prototype.accept = function(visitor) {
+    visitor(this);
 };
 
-function Sum() {
-    this.val = " + ";
+function Manager(salary) {
+    this.salary = salary;
 }
-Sum.prototype = Object.create(Operation.prototype);
 
-function Min() {
-    this.val = " - ";
+Manager.prototype = Object.create(Employee.prototype);
+
+function Developer(salary) {
+    this.salary = salary;
 }
-Min.prototype = Object.create(Operation.prototype);
 
-function Num(val) {
-    this.val = val;
-}
-Num.prototype = Object.create(Operation.prototype);
+Developer.prototype = Object.create(Employee.prototype);
 
 
-function Printer() {}
-Printer.prototype.visit = function(operation) {
-    return operation.val;
-};
-
-module.exports = [Sum, Min, Num, Printer];
+module.exports = [Developer, Manager, bonusVisitor];
 
 ```
 ##### visitor_es6.js
 ```Javascript
-class Operation {
+function bonusVisitor(employee) {
+    if (employee instanceof Manager)
+        employee.bonus = employee.salary * 2;
+    if (employee instanceof Developer)
+        employee.bonus = employee.salary;
+}
+
+class Employee {
+    constructor(salary) {
+        this.bonus = 0;
+        this.salary = salary;
+    }
+
     accept(visitor) {
-        return visitor.visit(this);
+        visitor(this);
     }
 }
 
-class Sum extends Operation {
-    constructor() {
-        super();
-        this.val = " + ";
+class Manager extends Employee {
+    constructor(salary) {
+        super(salary);
     }
 }
 
-class Min extends Operation {
-    constructor() {
-        super();
-        this.val = " - ";
+class Developer extends Employee {
+    constructor(salary) {
+        super(salary);
     }
 }
 
-class Num extends Operation {
-    constructor(val) {
-        super();
-        this.val = val;
-    }
-}
-
-class Printer {
-    visit(operation) {
-        return operation.val;
-    }
-}
-
-module.exports = [Sum, Min, Num, Printer];
+module.exports = [Developer, Manager, bonusVisitor];
 
 ```
 

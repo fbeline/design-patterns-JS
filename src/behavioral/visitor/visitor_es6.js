@@ -1,34 +1,31 @@
-class Operation {
+function bonusVisitor(employee) {
+    if (employee instanceof Manager)
+        employee.bonus = employee.salary * 2;
+    if (employee instanceof Developer)
+        employee.bonus = employee.salary;
+}
+
+class Employee {
+    constructor(salary) {
+        this.bonus = 0;
+        this.salary = salary;
+    }
+
     accept(visitor) {
-        return visitor.visit(this);
+        visitor(this);
     }
 }
 
-class Sum extends Operation {
-    constructor() {
-        super();
-        this.val = " + ";
+class Manager extends Employee {
+    constructor(salary) {
+        super(salary);
     }
 }
 
-class Min extends Operation {
-    constructor() {
-        super();
-        this.val = " - ";
+class Developer extends Employee {
+    constructor(salary) {
+        super(salary);
     }
 }
 
-class Num extends Operation {
-    constructor(val) {
-        super();
-        this.val = val;
-    }
-}
-
-class Printer {
-    visit(operation) {
-        return operation.val;
-    }
-}
-
-module.exports = [Sum, Min, Num, Printer];
+module.exports = [Developer, Manager, bonusVisitor];
