@@ -361,7 +361,7 @@ class TrafficTower {
     }
 
     requestPositions() {
-        return this.airplanes.map(function(airplane) {
+        return this.airplanes.map(airplane => {
             return airplane.position;
         });
     }
