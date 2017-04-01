@@ -4,13 +4,13 @@ function EquipmentComposition(name) {
     this.name = name;
 }
 
-EquipmentComposition.prototype.add = function(Equipament) {
-    this.equipments.push(Equipament);
+EquipmentComposition.prototype.add = function(equipment) {
+    this.equipments.push(equipment);
 };
 
 EquipmentComposition.prototype.getPrice = function() {
-    return this.equipments.map(function(Equipament){
-        return Equipament.getPrice();
+    return this.equipments.map(function(equipment){
+        return equipment.getPrice();
     }).reduce(function(a, b) {
         return  a + b;
     });
