@@ -10,7 +10,7 @@ class Equipment {
     }
 
     setName(name) {
-       this.name = name;
+        this.name = name;
     }
 }
 
@@ -19,16 +19,16 @@ class Composite extends Equipment {
 
     constructor() {
         super();
-        this.equipaments = [];
+        this.equipments = [];
     }
 
-    add(equipament) {
-        this.equipaments.push(equipament);
+    add(equipment) {
+        this.equipments.push(equipment);
     }
 
     getPrice() {
-        return this.equipaments.map(equipament => {
-            return equipament.getPrice();
+        return this.equipments.map(equipment => {
+            return equipment.getPrice();
         }).reduce((a, b)  => {
             return  a + b;
         });

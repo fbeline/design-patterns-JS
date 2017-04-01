@@ -546,7 +546,7 @@ module.exports = [Product, fees, proft];
 ##### state.js
 ```Javascript
 function Order() {
-    this.state = new WaintingForPayment();
+    this.state = new WaitingForPayment();
 
     this.nextState = function() {
         this.state = this.state.next();
@@ -554,7 +554,7 @@ function Order() {
 }
 
 
-function WaintingForPayment() {
+function WaitingForPayment() {
     this.name = 'waitingForPayment';
     this.next = function() {
         return new Shipping();
@@ -572,6 +572,51 @@ function Delivered() {
     this.name = 'delivered';
     this.next = function() {
         return this;
+    };
+}
+
+module.exports = Order;
+
+```
+##### state_es6.js
+```Javascript
+class OrderStatus {
+    constructor(name, nextStatus) {
+        this.name = name;
+        this.nextStatus = nextStatus;
+    }
+
+    next() {
+        return new this.nextStatus();
+    }
+}
+
+class WaitingForPayment extends OrderStatus {
+    constructor() {
+        super('waitingForPayment', Shipping);
+    }
+}
+
+class Shipping extends OrderStatus {
+    constructor() {
+        super('shipping', Delivered);
+    }
+}
+
+
+class Delivered extends OrderStatus {
+    constructor() {
+        super('delivered', Delivered);
+    }
+}
+
+class Order {
+    constructor() {
+        this.state = new WaitingForPayment();
+    }
+
+    nextState() {
+        this.state = this.state.next();
     };
 }
 
@@ -1004,6 +1049,21 @@ function Person() {
 module.exports = Person;
 
 ```
+##### singleton_es6.js
+```Javascript
+class Person {
+    constructor() {
+        if (typeof Person.instance === 'object') {
+            return Person.instance;
+        }
+        Person.instance = this;
+        return this;
+    }
+}
+
+module.exports = Person;
+
+```
 
 
 ## structural
@@ -1124,16 +1184,16 @@ module.exports = [EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk];
 ```Javascript
 // composition
 function EquipmentComposition(name) {
-    this.equipaments = [];
+    this.equipments = [];
     this.name = name;
 }
 
 EquipmentComposition.prototype.add = function(Equipament) {
-    this.equipaments.push(Equipament);
+    this.equipments.push(Equipament);
 };
 
 EquipmentComposition.prototype.getPrice = function() {
-    return this.equipaments.map(function(Equipament){
+    return this.equipments.map(function(Equipament){
         return Equipament.getPrice();
     }).reduce(function(a, b) {
         return  a + b;
@@ -1182,7 +1242,7 @@ class Equipment {
     }
 
     setName(name) {
-       this.name = name;
+        this.name = name;
     }
 }
 
@@ -1191,16 +1251,16 @@ class Composite extends Equipment {
 
     constructor() {
         super();
-        this.equipaments = [];
+        this.equipments = [];
     }
 
-    add(equipament) {
-        this.equipaments.push(equipament);
+    add(equipment) {
+        this.equipments.push(equipment);
     }
 
     getPrice() {
-        return this.equipaments.map(equipament => {
-            return equipament.getPrice();
+        return this.equipments.map(equipment => {
+            return equipment.getPrice();
         }).reduce((a, b)  => {
             return  a + b;
         });
