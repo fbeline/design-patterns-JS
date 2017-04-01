@@ -1124,17 +1124,17 @@ module.exports = [EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk];
 ```Javascript
 // composition
 function EquipmentComposition(name) {
-    this.equipaments = [];
+    this.equipmentList = [];
     this.name = name;
 }
 
-EquipmentComposition.prototype.add = function(Equipament) {
-    this.equipaments.push(Equipament);
+EquipmentComposition.prototype.add = function(Equipment) {
+    this.equipmentList.push(Equipment);
 };
 
 EquipmentComposition.prototype.getPrice = function() {
-    return this.equipaments.map(function(Equipament){
-        return Equipament.getPrice();
+    return this.equipmentList.map(function(Equipment){
+        return Equipment.getPrice();
     }).reduce(function(a, b) {
         return  a + b;
     });
