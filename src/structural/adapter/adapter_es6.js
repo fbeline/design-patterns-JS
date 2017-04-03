@@ -1,12 +1,5 @@
-class ViolentPeople {
-    attack() {
-
-    }
-}
-
-class Soldier extends ViolentPeople {
+class Soldier {
     constructor(level) {
-        super();
         this.level = level;
     }
 
@@ -25,9 +18,8 @@ class Jedi {
     }
 }
 
-class JediAdapter extends ViolentPeople {
+class JediAdapter {
     constructor(jedi) {
-        super();
         this.jedi = jedi;
     }
 
