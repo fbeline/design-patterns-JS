@@ -1032,6 +1032,22 @@ Sheep.prototype.clone = function() {
 module.exports = Sheep;
 
 ```
+##### prototype_es6.js
+```Javascript
+class Sheep {
+    constructor(name, weight) {
+        this.name = name;
+        this.weight = weight;
+    }
+
+    clone() {
+        return new Sheep(this.name, this.weight);
+    }
+}
+
+module.exports = Sheep;
+
+```
 
 ### Singleton
 ##### singleton.js
@@ -1093,6 +1109,41 @@ function JediAdapter(jedi) {
 JediAdapter.prototype.attack = function() {
     return this.jedi.attackWithSaber();
 };
+
+module.exports = [Soldier, Jedi, JediAdapter];
+
+```
+##### adapter_es6.js
+```Javascript
+class Soldier {
+    constructor(level) {
+        this.level = level;
+    }
+
+    attack() {
+        return this.level * 1;
+    }
+}
+
+class Jedi {
+    constructor(level) {
+        this.level = level;
+    }
+
+    attackWithSaber() {
+        return this.level * 100;
+    }
+}
+
+class JediAdapter {
+    constructor(jedi) {
+        this.jedi = jedi;
+    }
+
+    attack() {
+        return this.jedi.attackWithSaber();
+    }
+}
 
 module.exports = [Soldier, Jedi, JediAdapter];
 
