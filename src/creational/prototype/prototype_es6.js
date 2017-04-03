@@ -1,15 +1,5 @@
-class Cloneable {
-    constructor() {
-    }
-
-    clone() {
-        return null;
-    }
-}
-
-class Sheep extends Cloneable {
+class Sheep {
     constructor(name, weight) {
-        super();
         this.name = name;
         this.weight = weight;
     }
@@ -20,5 +10,3 @@ class Sheep extends Cloneable {
 }
 
 module.exports = Sheep;
-
-
