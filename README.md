@@ -50,4 +50,4 @@ npm test
 Some patterns still need to be implemented using ES6 classes.
 
 ## Notes
-- All the short definitions used in this documentation was extracted from [here](https://en.wikipedia.org/wiki/Design_Patterns).
+- All the short definitions used in this documentation were extracted from [here](https://en.wikipedia.org/wiki/Design_Patterns).
