@@ -171,7 +171,7 @@ module.exports = [Cockpit, Turbine, OnCommand, OffCommand, SpeedUpCommand, Speed
 ```
 ##### command_es6.js
 ```Javascript
-class Cockipt {
+class Cockpit {
     constructor(command) {
         this.command = command;
     }
@@ -210,7 +210,8 @@ class OffCommand {
     }
 }
 
-module.exports = [Cockipt, Turbine, OnCommand, OffCommand];
+export { Cockpit, Turbine, OnCommand, OffCommand };
+
 
 ```
 
@@ -282,7 +283,7 @@ class Num {
 }
 
 
-module.exports = [Num, Min, Sum];
+export { Num, Min, Sum };
 
 ```
 
@@ -323,7 +324,7 @@ class Iterator {
     }
 }
 
-module.exports = Iterator;
+export default Iterator;
 
 ```
 
@@ -380,7 +381,7 @@ class Airplane{
 }
 
 
-module.exports = [TrafficTower, Airplane];
+export { TrafficTower, Airplane };
 
 ```
 
@@ -423,7 +424,7 @@ class Memento {
     }
 }
 
-var originator = {
+const originator = {
     store: function(val) {
         return new Memento(val);
     },
@@ -448,7 +449,7 @@ class Caretaker {
 
 
 
-module.exports = [originator, Caretaker];
+export { originator, Caretaker };
 
 ```
 
@@ -538,7 +539,7 @@ class proft {
     }
 }
 
-module.exports = [Product, fees, proft];
+export { Product, fees, proft };
 
 ```
 
@@ -620,7 +621,7 @@ class Order {
     };
 }
 
-module.exports = Order;
+export default Order;
 
 ```
 
@@ -685,7 +686,7 @@ function premiumStrategy(amount) {
     return amount * 0.8;
 }
 
-module.exports = [ShoppingCart, guestStrategy, regularStrategy, premiumStrategy];
+export { ShoppingCart, guestStrategy, regularStrategy, premiumStrategy };
 
 ```
 
@@ -758,7 +759,7 @@ class Tax2 extends Tax {
     }
 }
 
-module.exports = [Tax1, Tax2];
+export { Tax1, Tax2 };
 
 ```
 
@@ -828,7 +829,7 @@ class Developer extends Employee {
     }
 }
 
-module.exports = [Developer, Manager, bonusVisitor];
+export { Developer, Manager, bonusVisitor };
 
 ```
 
@@ -892,7 +893,7 @@ class Rx24 {
 }
 
 
-module.exports = droidProducer;
+export default droidProducer;
 
 ```
 
@@ -969,7 +970,7 @@ class RequestBuilder {
 
 }
 
-module.exports = RequestBuilder;
+export default RequestBuilder;
 
 ```
 
@@ -1012,7 +1013,7 @@ class Bmw {
     }
 }
 
-module.exports = BmwFactory;
+export default BmwFactory;
 
 ```
 
@@ -1045,7 +1046,7 @@ class Sheep {
     }
 }
 
-module.exports = Sheep;
+export default Sheep;
 
 ```
 
@@ -1077,7 +1078,7 @@ class Person {
     }
 }
 
-module.exports = Person;
+export default Person;
 
 ```
 
@@ -1145,7 +1146,7 @@ class JediAdapter {
     }
 }
 
-module.exports = [Soldier, Jedi, JediAdapter];
+export { Soldier, Jedi, JediAdapter };
 
 ```
 
@@ -1226,7 +1227,7 @@ class AlcoholInk extends Ink {
     }
 }
 
-module.exports = [EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk];
+export { EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk };
 
 ```
 
@@ -1350,7 +1351,7 @@ class Memory extends Equipment {
     }
 }
 
-module.exports = [Cabbinet, FloppyDisk, HardDrive, Memory];
+export { Cabbinet, FloppyDisk, HardDrive, Memory };
 
 ```
 
@@ -1440,7 +1441,7 @@ class CheeseDecorator extends PastaDecorator {
     }
 }
 
-module.exports = [Penne, SauceDecorator, CheeseDecorator];
+export { Penne, SauceDecorator, CheeseDecorator };
 
 ```
 
@@ -1508,7 +1509,7 @@ class Fees {
     }
 }
 
-module.exports = ShopFacade;
+export default ShopFacade;
 
 ```
 
