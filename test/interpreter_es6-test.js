@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const [Num, Min, Sum]  = require('../src/behavioral/interpreter/interpreter_es6');
+import { Num, Min, Sum } from '../src/behavioral/interpreter/interpreter_es6';
 
 describe('interpreter tests', () => {
 

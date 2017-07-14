@@ -26,4 +26,4 @@ function premiumStrategy(amount) {
     return amount * 0.8;
 }
 
-module.exports = [ShoppingCart, guestStrategy, regularStrategy, premiumStrategy];
+export { ShoppingCart, guestStrategy, regularStrategy, premiumStrategy };

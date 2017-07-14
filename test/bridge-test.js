@@ -6,14 +6,14 @@ const [EpsonPrinter, HPprinter, acrylicInk, alcoholInk] = require('../src/struct
 describe('bridge tests', () => {
 
     it('Epson test', () => {
-        printer = new EpsonPrinter(alcoholInk);
-        result = printer.print();
+        const printer = new EpsonPrinter(alcoholInk);
+        const result = printer.print();
         expect(result).to.equal("Printer: Epson, Ink: alcohol-based");
     });
 
     it('HP test', () => {
-        printer = new HPprinter(acrylicInk);
-        result = printer.print();
+        const printer = new HPprinter(acrylicInk);
+        const result = printer.print();
         expect(result).to.equal("Printer: HP, Ink: acrylic-based");
     });
 });

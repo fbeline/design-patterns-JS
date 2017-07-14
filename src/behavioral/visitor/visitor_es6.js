@@ -28,4 +28,4 @@ class Developer extends Employee {
     }
 }
 
-module.exports = [Developer, Manager, bonusVisitor];
+export { Developer, Manager, bonusVisitor };

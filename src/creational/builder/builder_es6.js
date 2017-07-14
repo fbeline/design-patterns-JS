@@ -32,4 +32,4 @@ class RequestBuilder {
 
 }
 
-module.exports = RequestBuilder;
+export default RequestBuilder;

@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const Person = require('../src/creational/singleton/singleton_es6');
+import Person from '../src/creational/singleton/singleton_es6';
 
 describe('singleton_es6 test', () => {
     it('sanity', () => {

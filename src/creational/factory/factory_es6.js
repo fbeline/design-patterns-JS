@@ -16,4 +16,4 @@ class Bmw {
     }
 }
 
-module.exports = BmwFactory;
+export default BmwFactory;

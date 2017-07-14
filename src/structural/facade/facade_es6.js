@@ -33,4 +33,4 @@ class Fees {
     }
 }
 
-module.exports = ShopFacade;
+export default ShopFacade;

@@ -1,4 +1,4 @@
-class Cockipt {
+class Cockpit {
     constructor(command) {
         this.command = command;
     }
@@ -37,4 +37,5 @@ class OffCommand {
     }
 }
 
-module.exports = [Cockipt, Turbine, OnCommand, OffCommand];
+export { Cockpit, Turbine, OnCommand, OffCommand };
+

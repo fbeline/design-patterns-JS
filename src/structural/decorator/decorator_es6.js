@@ -47,4 +47,4 @@ class CheeseDecorator extends PastaDecorator {
     }
 }
 
-module.exports = [Penne, SauceDecorator, CheeseDecorator];
+export { Penne, SauceDecorator, CheeseDecorator };

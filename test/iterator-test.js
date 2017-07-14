@@ -1,7 +1,8 @@
 const expect = require('chai').expect;
 
 const Iterator = require('../src/behavioral/iterator/iterator');
-const Iterator6 = require('../src/behavioral/iterator/iterator_es6');
+
+import Iterator6 from '../src/behavioral/iterator/iterator_es6';
 
 describe('iterator tests', () => {
 

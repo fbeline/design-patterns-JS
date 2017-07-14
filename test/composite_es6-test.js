@@ -1,12 +1,12 @@
 const expect = require('chai').expect;
 
-const [Cabbinet, FloppyDisk, HardDrive, Memory] = require('../src/structural/composite/composite_es6.js');
+import { Cabbinet, FloppyDisk, HardDrive, Memory } from '../src/structural/composite/composite_es6';
 
 
 describe('composity tests', () => {
 
     it('sanity test', () => {
-        var cabbinet = new Cabbinet();
+        const cabbinet = new Cabbinet();
         cabbinet.add(new FloppyDisk());
         cabbinet.add(new HardDrive());
         cabbinet.add(new Memory());

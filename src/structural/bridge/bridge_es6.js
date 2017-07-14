@@ -45,4 +45,4 @@ class AlcoholInk extends Ink {
     }
 }
 
-module.exports = [EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk];
+export { EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk };

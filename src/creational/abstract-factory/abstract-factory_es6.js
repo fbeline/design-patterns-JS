@@ -25,4 +25,4 @@ class Rx24 {
 }
 
 
-module.exports = droidProducer;
+export default droidProducer;

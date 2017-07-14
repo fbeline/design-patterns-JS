@@ -23,4 +23,4 @@ class Airplane{
 }
 
 
-module.exports = [TrafficTower, Airplane];
+export { TrafficTower, Airplane };

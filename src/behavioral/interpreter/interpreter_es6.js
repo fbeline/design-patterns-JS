@@ -32,4 +32,4 @@ class Num {
 }
 
 
-module.exports = [Num, Min, Sum];
+export { Num, Min, Sum };

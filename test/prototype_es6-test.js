@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const Sheep = require('../src/creational/prototype/prototype_es6');
+import Sheep from '../src/creational/prototype/prototype_es6';
 
 describe('prototype_es6 test', () => {
     it('sanity', () => {

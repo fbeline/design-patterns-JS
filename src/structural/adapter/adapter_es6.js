@@ -28,4 +28,4 @@ class JediAdapter {
     }
 }
 
-module.exports = [Soldier, Jedi, JediAdapter];
+export { Soldier, Jedi, JediAdapter };

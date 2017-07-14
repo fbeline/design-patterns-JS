@@ -1,14 +1,14 @@
 const expect = require('chai').expect;
-const [Developer, Manager, bonusVisitor] = require('../src/behavioral/visitor/visitor_es6');
+import { Developer, Manager, bonusVisitor } from '../src/behavioral/visitor/visitor_es6';
 
 
 describe('visitor es6 tests', () => {
     it('sanity', () => {
-        var employees = [];
+        let employees = [];
 
-        var john = new Developer(4000);
-        var maria = new Developer(4000);
-        var christian = new Manager(10000);
+        const john = new Developer(4000);
+        const maria = new Developer(4000);
+        const christian = new Manager(10000);
 
         employees.push(john);
         employees.push(maria);

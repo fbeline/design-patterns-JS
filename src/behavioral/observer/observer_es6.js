@@ -38,4 +38,4 @@ class proft {
     }
 }
 
-module.exports = [Product, fees, proft];
+export { Product, fees, proft };

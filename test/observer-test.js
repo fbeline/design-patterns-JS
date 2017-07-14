@@ -1,12 +1,12 @@
 const expect = require('chai').expect;
-const [Product, fees, proft] = require('../src/behavioral/observer/observer.js');
-const [Product6, fees6, proft6] = require('../src/behavioral/observer/observer_es6.js');
+const [Prt, fes, pft] = require('../src/behavioral/observer/observer.js');
+import { Product, fees, proft } from '../src/behavioral/observer/observer_es6';
 
 
 describe('observer test', () => {
 
     it('sanity', () => {
-        test(Product, fees, proft);
+        test(Prt, fes, pft);
     });
 
 });
@@ -14,14 +14,14 @@ describe('observer test', () => {
 describe('observer es6 test', () => {
 
     it('sanity', () => {
-        test(Product6, new fees6(), new proft6());
+        test(Product, new fees(), new proft());
     });
 
 });
 
 
 function test(Product, fees, proft) {
-    var product = new Product();
+    const product = new Product();
     product.register(fees);
     product.register(proft);
     product.setBasePrice(100);

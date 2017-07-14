@@ -67,4 +67,4 @@ class Memory extends Equipment {
     }
 }
 
-module.exports = [Cabbinet, FloppyDisk, HardDrive, Memory];
+export { Cabbinet, FloppyDisk, HardDrive, Memory };

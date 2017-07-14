@@ -30,4 +30,4 @@ class Tax2 extends Tax {
     }
 }
 
-module.exports = [Tax1, Tax2];
+export { Tax1, Tax2 };

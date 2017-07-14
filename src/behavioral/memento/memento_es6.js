@@ -4,7 +4,7 @@ class Memento {
     }
 }
 
-var originator = {
+const originator = {
     store: function(val) {
         return new Memento(val);
     },
@@ -29,4 +29,4 @@ class Caretaker {
 
 
 
-module.exports = [originator, Caretaker];
+export { originator, Caretaker };

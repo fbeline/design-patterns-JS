@@ -9,4 +9,4 @@ class Sheep {
     }
 }
 
-module.exports = Sheep;
+export default Sheep;

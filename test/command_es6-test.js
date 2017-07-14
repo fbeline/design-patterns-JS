@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const [Cockpit, Turbine, OnCommand, OffCommand] = require('../src/behavioral/command/command_es6.js');
+import { Cockpit, Turbine, OnCommand, OffCommand } from '../src/behavioral/command/command_es6';
 
 describe('command es6 tests', () => {
 
