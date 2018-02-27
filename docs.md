@@ -1,7 +1,7 @@
 # Design Patterns JS
 
 **[Behavioral](#behavioral)**
-* [Chain Of Resp](#chain-of-resp)
+* [Chain Of Responsibility](#chain-of-responsibility)
 * [Command](#command)
 * [Interpreter](#interpreter)
 * [Iterator](#iterator)
@@ -31,8 +31,8 @@
 
 
 
-## behavioral
-### Chain Of Resp
+## Behavioral: Most of these design patterns are specifically concerned with communication between objects.
+### Chain Of Responsibility: delegates commands to a chain of processing objects.
 ##### chain-of-resp.js
 ```Javascript
 function ShoppingCart() {
@@ -99,7 +99,7 @@ module.exports = [ShoppingCart, Discount];
 
 ```
 
-### Command
+### Command: creates objects which encapsulate actions and parameters.
 ##### command.js
 ```Javascript
 function Cockpit(command) {
@@ -215,7 +215,7 @@ export { Cockpit, Turbine, OnCommand, OffCommand };
 
 ```
 
-### Interpreter
+### Interpreter: implements a specialized language.
 ##### interpreter.js
 ```Javascript
 function Sum(left, right) {
@@ -287,7 +287,7 @@ export { Num, Min, Sum };
 
 ```
 
-### Iterator
+### Iterator: accesses the elements of an object sequentially without exposing its underlying representation.
 ##### iterator.js
 ```Javascript
 function Iterator(el) {
@@ -328,7 +328,7 @@ export default Iterator;
 
 ```
 
-### Mediator
+### Mediator: allows loose coupling between classes by being the only class that has detailed knowledge of their methods.
 ##### mediator.js
 ```Javascript
 function TrafficTower() {
@@ -385,7 +385,7 @@ export { TrafficTower, Airplane };
 
 ```
 
-### Memento
+### Memento: provides the ability to restore an object to its previous state (undo).
 ##### memento.js
 ```Javascript
 function Memento(value) {
@@ -453,7 +453,7 @@ export { originator, Caretaker };
 
 ```
 
-### Observer
+### Observer: is a publish/subscribe pattern which allows a number of observer objects to see an event.
 ##### observer.js
 ```Javascript
 function Product() {
@@ -543,7 +543,7 @@ export { Product, fees, proft };
 
 ```
 
-### State
+### State: allows an object to alter its behavior when its internal state changes.
 ##### state.js
 ```Javascript
 function Order() {
@@ -625,7 +625,7 @@ export default Order;
 
 ```
 
-### Strategy
+### Strategy: allows one of a family of algorithms to be selected on-the-fly at runtime.
 ##### strategy.js
 ```Javascript
 function ShoppingCart(discount) {
@@ -690,7 +690,7 @@ export { ShoppingCart, guestStrategy, regularStrategy, premiumStrategy };
 
 ```
 
-### Template
+### Template: method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete 
 ##### template.js
 ```Javascript
 function Tax() {}
@@ -763,7 +763,7 @@ export { Tax1, Tax2 };
 
 ```
 
-### Visitor
+### Visitor: separates an algorithm from an object structure by moving the hierarchy of methods into one object.
 ##### visitor.js
 ```Javascript
 function bonusVisitor(employee) {
@@ -834,8 +834,8 @@ export { Developer, Manager, bonusVisitor };
 ```
 
 
-## creational
-### Abstract Factory
+## Creational: Creational patterns are ones that create objects for you, rather than having you instantiate objects directly.
+### Abstract Factory: provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 ##### abstract-factory.js
 ```Javascript
 function droidProducer(kind) {
@@ -897,7 +897,7 @@ export default droidProducer;
 
 ```
 
-### Builder
+### Builder: separate the construction of a complex object from its representation, allowing the same construction process to create various representations.
 ##### builder.js
 ```Javascript
 function Request() {
@@ -974,7 +974,7 @@ export default RequestBuilder;
 
 ```
 
-### Factory
+### Factory: define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
 ##### factory.js
 ```Javascript
 function bmwFactory(type) {
@@ -1017,7 +1017,7 @@ export default BmwFactory;
 
 ```
 
-### Prototype
+### Prototype: specify the kinds of objects to create using a prototypical instance, and create new objects from the 'skeleton' of an existing object, thus boosting performance and keeping memory footprints to a minimum.
 ##### prototype.js
 ```Javascript
 function Sheep(name, weight) {
@@ -1050,7 +1050,7 @@ export default Sheep;
 
 ```
 
-### Singleton
+### Singleton: ensure a class has only one instance, and provide a global point of access to it.
 ##### singleton.js
 ```Javascript
 function Person() {
@@ -1083,8 +1083,8 @@ export default Person;
 ```
 
 
-## structural
-### Adapter
+## Structural: These concern class and object composition. They use inheritance to compose interfaces and define ways to compose objects to obtain new functionality.
+### Adapter: allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.
 ##### adapter.js
 ```Javascript
 function Soldier(lvl) {
@@ -1150,7 +1150,7 @@ export { Soldier, Jedi, JediAdapter };
 
 ```
 
-### Bridge
+### Bridge: decouples an abstraction from its implementation so that the two can vary independently.
 ##### bridge.js
 ```Javascript
 function EpsonPrinter(ink) {
@@ -1231,7 +1231,7 @@ export { EpsonPrinter, HPprinter, AcrylicInk, AlcoholInk };
 
 ```
 
-### Composite
+### Composite: composes zero-or-more similar objects so that they can be manipulated as one object.
 ##### composite.js
 ```Javascript
 // composition
@@ -1355,7 +1355,7 @@ export { Cabbinet, FloppyDisk, HardDrive, Memory };
 
 ```
 
-### Decorator
+### Decorator: dynamically adds/overrides behaviour in an existing method of an object.
 ##### decorator.js
 ```Javascript
 function Pasta() {
@@ -1445,7 +1445,7 @@ export { Penne, SauceDecorator, CheeseDecorator };
 
 ```
 
-### Facade
+### Facade: provides a simplified interface to a large body of code.
 ##### facade.js
 ```Javascript
 var shopFacade = {
@@ -1513,7 +1513,7 @@ export default ShopFacade;
 
 ```
 
-### Flyweight
+### Flyweight: reduces the cost of creating and manipulating a large number of similar objects.
 ##### flyweight.js
 ```Javascript
 function Color(name) {
@@ -1535,7 +1535,7 @@ module.exports = colorFactory;
 
 ```
 
-### Proxy
+### Proxy: provides a placeholder for another object to control access, reduce cost, and reduce complexity.
 ##### proxy.js
 ```Javascript
 function Car() {
