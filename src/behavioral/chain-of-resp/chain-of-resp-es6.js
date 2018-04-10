@@ -48,9 +48,7 @@ class PriceDiscount{
 
     exec(products) {
         let result = 0;
-        let total = products.reduce((a, b)=> {
-            return a + b;
-        });
+        let total = products.reduce((a, b)=> a + b);
 
         if (total >= 500)
             result = 0.1;
@@ -65,4 +63,4 @@ class NoneDiscount {
     };
 }
 
-module.exports = [ShoppingCart, Discount];
+export { ShoppingCart , Discount };

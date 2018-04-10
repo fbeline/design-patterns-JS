@@ -15,7 +15,7 @@ describe('chain of resp tests', () => {
         expect(resp).to.equal(0.1);
     });
 
-    it('mote than 3 products', () => {
+    it('more than 3 products', () => {
         var discount = new Discount();
 
         var sc = new ShoppingCart();
@@ -29,7 +29,7 @@ describe('chain of resp tests', () => {
         expect(resp).to.equal(0.05);
     });
 
-    it('mote than 3 products and > $ 500 ', () => {
+    it('more than 3 products and > $ 500 ', () => {
         var discount = new Discount();
 
         var sc = new ShoppingCart();
