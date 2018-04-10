@@ -16,4 +16,4 @@ class colorFactory {
     }
 };
 
-module.exports = colorFactory;
+export {colorFactory};
