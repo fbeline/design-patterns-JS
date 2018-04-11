@@ -16,4 +16,4 @@ class colorFactory {
     }
 };
 
-export {colorFactory};
+export { colorFactory };
