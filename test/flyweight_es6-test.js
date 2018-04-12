@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-import colorFactory  from '../src/structural/flyweight/flyweight_es6';
+import  { colorFactory }  from '../src/structural/flyweight/flyweight_es6';
 
 describe('flyweight tests', () => {
 
