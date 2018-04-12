@@ -7,10 +7,10 @@ describe('builder es6 test', () => {
         const url = 'http://something/users';
         const method = 'GET';
         const request = requestBuilder
-                                .forUrl(url)
-                                .useMethod(method)
-                                .payload(null)
-                                .build();
+            .forUrl(url)
+            .useMethod(method)
+            .payload(null)
+            .build();
 
         expect(request.method).to.equal(method);
         expect(request.payload).to.be.null;

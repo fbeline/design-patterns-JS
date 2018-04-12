@@ -10,5 +10,7 @@ describe('factory test', () => {
         expect(x6.price).to.equal(111000);
         expect(x5.maxSpeed).to.equal(300);
         expect(x6.maxSpeed).to.equal(320);
+        expect(x5.model).to.equal('X5');
+        expect(x6.model).to.equal('X6');
     });
 });

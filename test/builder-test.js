@@ -3,13 +3,18 @@ const RequestBuilder = require('../src/creational/builder/builder');
 
 describe('builder test', () => {
     it('sanity', () => {
+        var url = 'http://something/users';
+        var requestType = 'GET';
         var requestBuilder = new RequestBuilder();
         var request = requestBuilder
-            .forUrl('http://something/users')
-            .useMethod('GET')
+            .forUrl(url)
+            .useMethod(requestType)
             .payload(null)
             .build();
 
-        expect(request.method).to.equal('GET');
+        expect(request.method).to.equal(requestType);
+        expect(request.url).to.equal(url);
+        expect(request.payload).to.equal(null);
+
     });
 });
