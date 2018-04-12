@@ -13,8 +13,8 @@ Product.prototype.register = function(observer) {
 };
 
 Product.prototype.unregister = function(observer) {
-    this.actions.remove.filter(function(el) {
-        return el !==  observer;
+    this.actions = this.actions.filter(function(el) {
+        return el !== observer;
     });
 };
 

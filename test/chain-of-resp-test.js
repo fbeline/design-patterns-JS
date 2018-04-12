@@ -1,10 +1,23 @@
 const expect = require('chai').expect;
 
-const [ShoppingCart, Discount]  = require('../src/behavioral/chain-of-resp/chain-of-resp');
+const [ShoppingCart, Discount] = require('../src/behavioral/chain-of-resp/chain-of-resp');
 
 describe('chain of resp tests', () => {
 
-    it(' > $ 500', () => {
+    it('less then 3 products and total price < $ 500', () => {
+        var discount = new Discount();
+
+        var sc = new ShoppingCart();
+        sc.addProduct(100);
+
+        var resp = discount.calc(sc.products);
+
+        expect(resp).to.equal(0);
+    });
+
+
+
+    it('less then 3 products and total price > $ 500', () => {
         var discount = new Discount();
 
         var sc = new ShoppingCart();
@@ -15,7 +28,7 @@ describe('chain of resp tests', () => {
         expect(resp).to.equal(0.1);
     });
 
-    it('more than 3 products', () => {
+    it('more than 3 products and total price < $ 500 ', () => {
         var discount = new Discount();
 
         var sc = new ShoppingCart();
@@ -29,7 +42,7 @@ describe('chain of resp tests', () => {
         expect(resp).to.equal(0.05);
     });
 
-    it('more than 3 products and > $ 500 ', () => {
+    it('more than 3 products and total price > $ 500 ', () => {
         var discount = new Discount();
 
         var sc = new ShoppingCart();

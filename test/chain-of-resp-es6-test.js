@@ -1,10 +1,25 @@
 const expect = require('chai').expect;
 
-import {ShoppingCart, Discount}  from '../src/behavioral/chain-of-resp/chain-of-resp-es6';
+import { ShoppingCart, Discount } from '../src/behavioral/chain-of-resp/chain-of-resp-es6';
+
+
 
 describe('chain of resp es6 tests', () => {
 
-    it(' > $ 500', () => {
+    it('less then 3 products and total price < $ 500', () => {
+        const discount = new Discount();
+
+        const sc = new ShoppingCart();
+        sc.addProduct(100);
+
+        let resp = discount.calc(sc.products);
+
+        expect(resp).to.equal(0);
+    });
+
+
+
+    it('less then 3 products and total price > $ 500', () => {
         const discount = new Discount();
 
         const sc = new ShoppingCart();
@@ -15,7 +30,7 @@ describe('chain of resp es6 tests', () => {
         expect(resp).to.equal(0.1);
     });
 
-    it('more than 3 products', () => {
+    it('more than 3 products and total price < $ 500 ', () => {
         const discount = new Discount();
 
         const sc = new ShoppingCart();
@@ -29,7 +44,7 @@ describe('chain of resp es6 tests', () => {
         expect(resp).to.equal(0.05);
     });
 
-    it('more than 3 products and > $ 500 ', () => {
+    it('more than 3 products and total price > $ 500 ', () => {
         let discount = new Discount();
 
         let sc = new ShoppingCart();

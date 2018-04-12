@@ -4,13 +4,11 @@ class TrafficTower {
     }
 
     requestPositions() {
-        return this.airplanes.map(airplane => {
-            return airplane.position;
-        });
+        return this.airplanes.map(airplane => airplane.position);
     }
 }
 
-class Airplane{
+class Airplane {
     constructor(position, trafficTower) {
         this.position = position;
         this.trafficTower = trafficTower;
