@@ -6,11 +6,11 @@ const [EquipmentComposition, FloppyDisk, HardDrive, Memory] = require('../src/st
 describe('composity tests', () => {
 
     it('sanity test', () => {
-        var cabbinet = new EquipmentComposition("cabbinet");
-        cabbinet.add(new FloppyDisk());
-        cabbinet.add(new HardDrive());
-        cabbinet.add(new Memory());
+        var cabinet = new EquipmentComposition("cabinet");
+        cabinet.add(new FloppyDisk());
+        cabinet.add(new HardDrive());
+        cabinet.add(new Memory());
 
-        expect(cabbinet.getPrice()).to.equal(600);
+        expect(cabinet.getPrice()).to.equal(600);
     });
 });
