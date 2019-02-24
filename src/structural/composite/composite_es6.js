@@ -35,10 +35,10 @@ class Composite extends Equipment {
     }
 }
 
-class Cabbinet extends Composite {
+class Cabinet extends Composite {
     constructor() {
         super();
-        this.setName('cabbinet');
+        this.setName('cabinet');
     }
 }
 
@@ -67,4 +67,4 @@ class Memory extends Equipment {
     }
 }
 
-export { Cabbinet, FloppyDisk, HardDrive, Memory };
+export { Cabinet, FloppyDisk, HardDrive, Memory };
