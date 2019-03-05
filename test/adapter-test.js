@@ -4,10 +4,10 @@ const [Soldier, Jedi, JediAdapter] = require('../src/structural/adapter/adapter.
 
 describe('adapter tests', () => {
 
-    it('sanity', () => {
-        var stormtrooper = new Soldier(1);
-        var yoda = new JediAdapter(new Jedi(10));
-        expect(yoda.attack()).to.equal(stormtrooper.attack() * 1000);
-    });
+  it('sanity', () => {
+    var stormtrooper = new Soldier(1);
+    var yoda = new JediAdapter(new Jedi(10));
+    expect(yoda.attack()).to.equal(stormtrooper.attack() * 1000);
+  });
 
 });

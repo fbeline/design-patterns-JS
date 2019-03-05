@@ -1,26 +1,30 @@
 class TrafficTower {
-    constructor() {
-        this.airplanes = [];
-    }
 
-    requestPositions() {
-        return this.airplanes.map(airplane => {
-            return airplane.position;
-        });
-    }
+  constructor() {
+    this.airplanes = [];
+  }
+
+  requestPositions() {
+    return this.airplanes.map(airplane => {
+      return airplane.position;
+    });
+  }
 }
 
-class Airplane{
-    constructor(position, trafficTower) {
-        this.position = position;
-        this.trafficTower = trafficTower;
-        this.trafficTower.airplanes.push(this);
-    }
+class Airplane {
 
-    requestPositions() {
-        return this.trafficTower.requestPositions();
-    }
+  constructor(position, trafficTower) {
+    this.position = position;
+    this.trafficTower = trafficTower;
+    this.trafficTower.airplanes.push(this);
+  }
+
+  requestPositions() {
+    return this.trafficTower.requestPositions();
+  }
 }
 
-
-export { TrafficTower, Airplane };
+export {
+  TrafficTower,
+  Airplane
+};
