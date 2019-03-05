@@ -4,24 +4,24 @@ const [Cockpit, Turbine, OnCommand, OffCommand, SpeedUpCommand, SpeedDownCommand
 
 describe('command tests', () => {
 
-    it('turn off/on test', () => {
-        var turbine = new Turbine();
-        const onCommand = new OnCommand(turbine);
-        const cockpit = new Cockpit(onCommand);
-        cockpit.execute();
-        expect(turbine.state).to.be.true;
-    });
+  it('turn off/on test', () => {
+    var turbine = new Turbine();
+    const onCommand = new OnCommand(turbine);
+    const cockpit = new Cockpit(onCommand);
+    cockpit.execute();
+    expect(turbine.state).to.be.true;
+  });
 
-    it('speed test', () => {
-        var turbine = new Turbine();
-        const onCommand = new OnCommand(turbine);
-        var cockpit = new Cockpit(onCommand);
-        cockpit.execute();
+  it('speed test', () => {
+    var turbine = new Turbine();
+    const onCommand = new OnCommand(turbine);
+    var cockpit = new Cockpit(onCommand);
+    cockpit.execute();
 
-        const speedUp = new SpeedUpCommand(turbine);
-        cockpit = new Cockpit(speedUp);
-        cockpit.execute();
+    const speedUp = new SpeedUpCommand(turbine);
+    cockpit = new Cockpit(speedUp);
+    cockpit.execute();
 
-        expect(turbine.speed).to.equal(200);
-    });
+    expect(turbine.speed).to.equal(200);
+  });
 });

@@ -1,31 +1,35 @@
 class Soldier {
-    constructor(level) {
-        this.level = level;
-    }
+  constructor(level) {
+    this.level = level;
+  }
 
-    attack() {
-        return this.level * 1;
-    }
+  attack() {
+    return this.level * 1;
+  }
 }
 
 class Jedi {
-    constructor(level) {
-        this.level = level;
-    }
+  constructor(level) {
+    this.level = level;
+  }
 
-    attackWithSaber() {
-        return this.level * 100;
-    }
+  attackWithSaber() {
+    return this.level * 100;
+  }
 }
 
 class JediAdapter {
-    constructor(jedi) {
-        this.jedi = jedi;
-    }
+  constructor(jedi) {
+    this.jedi = jedi;
+  }
 
-    attack() {
-        return this.jedi.attackWithSaber();
-    }
+  attack() {
+    return this.jedi.attackWithSaber();
+  }
 }
 
-export { Soldier, Jedi, JediAdapter };
+export {
+  Soldier,
+  Jedi,
+  JediAdapter
+};
