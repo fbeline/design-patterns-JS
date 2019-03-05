@@ -14,28 +14,24 @@ class Product {
     }
 
     unregister(observer) {
-        this.actions.remove.filter(function(el) {
-            return el !== observer;
-        });
+        this.actions = this.actions.filter(el => !(el instanceof observer));
     }
 
     notifyAll() {
-        return this.actions.forEach(function(el) {
-            el.update(this);
-        }.bind(this));
+        return this.actions.forEach(el => el.update(this));
     }
 }
 
-class fees {
+class Fees {
     update(product) {
         product.price = product.price * 1.2;
     }
 }
 
-class proft {
+class Proft {
     update(product) {
         product.price = product.price * 2;
     }
 }
 
-export { Product, fees, proft };
+export { Product, Fees, Proft };
