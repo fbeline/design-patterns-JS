@@ -1,0 +1,55 @@
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    "indent": ["error", 2, {
+      "MemberExpression": 1,
+      "SwitchCase": 1
+    }],
+    "quotes": ["error", "single"],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "max-len": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "strict": [
+      "error",
+      "never"
+    ],
+    "comma-style": "error",
+    "consistent-this": [
+      "error",
+      "_this"
+    ],
+    "keyword-spacing": "error",
+    "no-buffer-constructor": "warn",
+    "no-console": "off",
+    "no-multi-spaces": "error",
+    "func-call-spacing": "error",
+    "no-trailing-spaces": "error",
+    "space-before-blocks": "error",
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "space-infix-ops": "error",
+    "space-unary-ops": "error",
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "context",
+        "message": "Don't use Mocha's global context"
+      }
+    ]
+  }
+}

@@ -1,6 +1,19 @@
-dea/
+# OS generated files
+DS_Store
+.DS_Store?
+._*
+.*.sw[op]
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editors and IDEs
+.idea/
+.vscode/
+
+# Dependencies
 node_modules/
-coverage/
-*.swp
-*.swo
-/.idea
+
+package-lock.json
+
