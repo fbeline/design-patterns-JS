@@ -1,5 +1,5 @@
 const assert = require('assert')
-const { Mission, Rocket, Payload, Destination } = require('../../../creational/builder-with-customized-instances/builder-with-customized-instances')
+const { Mission, Rocket, Payload, Destination } = require('../../../common/builder-with-customized-instances/builder-with-customized-instances')
 
 describe('builder-with-customized-instances', () => {
   it('should build and describe correct', () => {
